@@ -3,17 +3,17 @@
 <METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ ../XSD/mets.profile.v1-2.xsd http://www.loc.gov/METS/ ../XSD/mets.xsd http://www.loc.gov/mods/v3 ../XSD/mods-3-3.xsd http://www.w3.org/1999/xlink ../XSD/xlink.xsd">
 <!--
 	===========================================================================
-	== SBB Zeitungen METS-Profil, Version 0.1.6, 12.04.2010
+	== SBB Zeitungen METS-Profil, Version 0.1.7, 10.06.2011
 	===========================================================================
 
 	===========================================================================
-	== Autoren: Carsten Schulze
+	== Autoren: Carsten Schulze, Knut Lohse
 	===========================================================================
 
 	===========================================================================
 	== TODO
 	===========================================================================
-		-	Definition weiterer Stati für @RECORDSTATUS im metsHdr
+		-	Definition weiterer Status für @RECORDSTATUS im metsHdr
 		-	Elemente für MARC Relator/Country Codes aufzählen
 		-	Definition von muss, soll, kann und optinal
 		-	PURL für File Section
@@ -31,6 +31,9 @@
 	== CHANGELOG
 	===========================================================================
 
+	Version 0.1.7, 10.06.2011, bearbeitet von Knut Lohse
+	  - mögliche Werte bei 'Artikelkategorien' hinzu
+	  - 'Rubriken' hinzu
 	Version 0.1.6, 12.04.2010, bearbeitet von Carsten Schulze
 		-	TYPE="Newspaper" -> TYPE="newspaper"
 		-	mets:rightsMD ID="rights_ex##" -> mets:rightsMD ID="rights8208980_ex##"
@@ -85,7 +88,7 @@
 		** Datum
 		***************************************************************************
 	-->
-	<date>2010-12-04T11:53:00</date>
+	<date>2011-06-10T10:40:00</date>
 
 	<!--
 		***************************************************************************
@@ -93,11 +96,18 @@
 		***************************************************************************
 	-->
 	<contact>
-		<name>Carsten Schulze</name>
+		<name>Carsten Klee</name>
 		<institution>Staatsbibliothek zu Berlin - Preußischer Kulturbesitz</institution>
 		<address>Genthiner Str. 38, Berlin</address>
-		<phone>+49 (0)30/266-435781</phone>
-		<email>carsten.schulze@sbb.spk-berlin.de</email>
+		<phone>+49 (0)30/266-434402</phone>
+		<email>carsten.klee@sbb.spk-berlin.de</email>
+	</contact>
+	<contact>
+		<name>Knut Lohse</name>
+		<institution>Staatsbibliothek zu Berlin - Preußischer Kulturbesitz</institution>
+		<address>Genthiner Str. 38, Berlin</address>
+		<phone>+49 (0)30/266-432326</phone>
+		<email>knut.lohse@sbb.spk-berlin.de</email>
 	</contact>
 
 	<!--
@@ -105,14 +115,14 @@
 		** Registry
 		***************************************************************************
 
-	<registration_info regDate="2010-01-26T15:00:00" regURI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange"/>
+	<registration_info regDate="2011-06-10T15:00:00" regURI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange"/>
 	-->
 	<!--
 		***************************************************************************
 		** Related Profiles
 		***************************************************************************
 	-->
-	<related_profile RELATIONSHIP="voherige Version" URI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_0.1.5.xml" />
+	<related_profile RELATIONSHIP="voherige Version" URI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_0.1.6.xml" />
 	<related_profile RELATIONSHIP="aktuelle Version" URI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_draft.xml" />
 
 	<!--
@@ -252,6 +262,7 @@
 			<URI></URI>
 			<values>
 				<value>Nachricht</value>
+				<value>Kurzmitteilung</value>
 				<value>Familienanzeigen</value>
 				<value>Werbung</value>
 				<value>Listen, Tabellen und Vermischtes</value>
@@ -260,12 +271,39 @@
 				<value>Karikatur</value>
 				<value>Karte</value>
 				<value>Grafik</value>
+				<value>Fehler in Vorlage</value>
 			</values>
 			<context>
 				<p>mods:genre @type="articleCategory"</p>
 			</context>
 			<description>
 				<p>Jeder Artikel muss mit einer Artikelkategorie versehen werden.</p>
+			</description>
+		</vocabulary>
+		<!--
+			***************************************************************************
+			** Artikelrubriken
+			***************************************************************************
+		-->
+		<vocabulary>
+			<name>Artikelrubriken</name>
+			<maintenance_agency>Staatsbibliothek zu Berlin</maintenance_agency>
+			<URI></URI>
+			<values>
+				<value>Außenpolitik</value>
+				<value>Feuilleton</value>
+				<value>Freizeit</value>
+				<value>Kultur</value>
+				<value>Lokales</value>
+				<value>Politik</value>
+				<value>Sport</value>
+				<value>Wirtschaft</value>
+			</values>
+			<context>
+				<p>mods:genre type="articleRubric</p>
+			</context>
+			<description>
+				<p>Jeder Artikel kann mit einer Artikelrubrik versehen werden.</p>
 			</description>
 		</vocabulary>
 	</controlled_vocabularies>
@@ -768,6 +806,8 @@
 								<mods:genre>illustrated article</mods:genre>
 								<!-- Artikel der Kategorie Nachricht -->
 								<mods:genre type="articleCategory">Nachricht</mods:genre>
+								<!-- Artikel aus der Rubrik 'Lokales' -->
+								<mods:genre type="articleRubric">Lokales</mods:genre>
 							</mods:relatedItem>
 							<mods:relatedItem ID="DMD_article02" type="constituent">
 								<mods:titleInfo>
@@ -783,6 +823,8 @@
 								<mods:genre>article</mods:genre>
 								<!-- Artikel der Kategorie Nachricht -->
 								<mods:genre type="articleCategory">Nachricht</mods:genre>
+								<!-- Artikel ohne Rubrik -->
+								<mods:genre type="articleRubric" />
 							</mods:relatedItem>
 						</mods:mods>
 					</mets:xmlData>
@@ -1118,6 +1160,8 @@
 								<mods:genre>illustrated article</mods:genre>
 								<!-- Artikel der Kategorie Nachricht -->
 								<mods:genre type="articleCategory">Nachricht</mods:genre>
+								<!-- Artikel aus der Rubrik 'Lokales' -->
+								<mods:genre type="articleRubric">Lokales</mods:genre>
 							</mods:relatedItem>
 							<mods:relatedItem ID="DMD_article02_ex10" type="constituent">
 								<mods:titleInfo>
@@ -1133,6 +1177,8 @@
 								<mods:genre>article</mods:genre>
 								<!-- Artikel der Kategorie Nachricht -->
 								<mods:genre type="articleCategory">Nachricht</mods:genre>
+								<!-- Artikel ohne Rubrik -->
+								<mods:genre type="articleRubric" />
 							</mods:relatedItem>
 						</mods:mods>
 					</mets:xmlData>
