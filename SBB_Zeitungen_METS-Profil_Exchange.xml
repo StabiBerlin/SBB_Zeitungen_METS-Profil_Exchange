@@ -1,0 +1,1294 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml-stylesheet href="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/XSL/echoProfile2html.xsl" type="text/xsl"?>
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ ../XSD/mets.profile.v1-2.xsd http://www.loc.gov/METS/ ../XSD/mets.xsd http://www.loc.gov/mods/v3 ../XSD/mods-3-3.xsd http://www.w3.org/1999/xlink ../XSD/xlink.xsd">
+<!--
+	===========================================================================
+	== SBB Zeitungen METS-Profil, Version 0.1.6, 12.04.2010
+	===========================================================================
+
+	===========================================================================
+	== Autoren: Carsten Schulze
+	===========================================================================
+
+	===========================================================================
+	== TODO
+	===========================================================================
+		-	Definition weiterer Stati für @RECORDSTATUS im metsHdr
+		-	Elemente für MARC Relator/Country Codes aufzählen
+		-	Definition von muss, soll, kann und optinal
+		-	PURL für File Section
+	===========================================================================
+	== Problems to solve
+	===========================================================================
+		-	Root Element: Ist das Attribut @OBJID notwendig? Fedora erstellt selbst-
+			ständig PIDs. Wert von OBJID müsste ein Prefix + UUID + Nummer für
+			Ausgabe haben. Der Wert dürfte nach Fedora Angaben nicht mehr als 64
+			Zeichen enthalten.
+		-	Braucht das mods:relatedItem eine ID?
+		-	PREMIS, MIX etc. wurde erst einaml entfernt. Überlegung der Einbindung für spätere Versionen
+
+	===========================================================================
+	== CHANGELOG
+	===========================================================================
+
+	Version 0.1.6, 12.04.2010, bearbeitet von Carsten Schulze
+		-	TYPE="Newspaper" -> TYPE="newspaper"
+		-	mets:rightsMD ID="rights_ex##" -> mets:rightsMD ID="rights8208980_ex##"
+		-	mets:digiprovMD ID="digiprov_ex##" -> mets:digiprovMD ID="digiprov8208980_ex##"
+		-	UUID -> ZDB-ID
+		-	mods:recordIdentifier source="zdb">1234567 -> mods:recordIdentifier source="zdb">2532910-8
+	Version 0.1.5, 26.01.2010, bearbeitet von Carsten Schulze
+		-	Kompatibilität mit dem DFG-Viewer
+	Version 0.1.4, 02.11.2009, bearbeitet von Carsten Schulze
+		-	geringfügige Änderungen im vollständigen Beispiel
+	Version 0.1.3, 02.11.2009, bearbeitet von Carsten Schulze
+		-	mets:area aus "article-part" entfernt
+		-	Marc Country Codes entfernt
+	Version 0.1.2, 19.11.2009, bearbeitet von Carsten Schulze
+		-	Administrative Metadata Section entfernt
+	Version 0.1, 26.10.2009, bearbeitet von Carsten Schulze
+		-	erster Entwurf.
+		-	xsi:schemaLocation="http://www.loc.gov/METS_Profile/mets.profile.v1-2.xsd mets.profile.v1-2.xsd http://www.w3.org/1999/xlink http://www.loc.gov/standards/mets/xlink.xsd xlink.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd mods-3-3.xsd"> gekürzt
+
+	===========================================================================
+-->
+
+	<!--
+	***************************************************************************
+	** URI
+	***************************************************************************
+	-->
+	<URI LOCTYPE="URL">
+		http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_draft.xml
+	</URI>
+
+	<!--
+		***************************************************************************
+		** Titel
+		***************************************************************************
+	-->
+	<title>SBB Zeitungen METS-Profil - Exchange [Entwurf]</title>
+
+
+	<!--
+		***************************************************************************
+		** Abstract
+		***************************************************************************
+	-->
+	<abstract>Das SBB Zeitungen METS-Profil - Exchange beschreibt das Datenformat
+	für den Austausch von Metadaten für digitale Objekte digitalisierter Zeitungen zwischen	der
+	Staatsbibliothek zu Berlin und Dritten, die als Auftragnehmer diese Daten erstellen.
+	</abstract>
+
+	<!--
+		***************************************************************************
+		** Datum
+		***************************************************************************
+	-->
+	<date>2010-12-04T11:53:00</date>
+
+	<!--
+		***************************************************************************
+		** Kontakt
+		***************************************************************************
+	-->
+	<contact>
+		<name>Carsten Schulze</name>
+		<institution>Staatsbibliothek zu Berlin - Preußischer Kulturbesitz</institution>
+		<address>Genthiner Str. 38, Berlin</address>
+		<phone>+49 (0)30/266-435781</phone>
+		<email>carsten.schulze@sbb.spk-berlin.de</email>
+	</contact>
+
+	<!--
+		***************************************************************************
+		** Registry
+		***************************************************************************
+
+	<registration_info regDate="2010-01-26T15:00:00" regURI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange"/>
+	-->
+	<!--
+		***************************************************************************
+		** Related Profiles
+		***************************************************************************
+	-->
+	<related_profile RELATIONSHIP="voherige Version" URI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_0.1.5.xml" />
+	<related_profile RELATIONSHIP="aktuelle Version" URI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_draft.xml" />
+
+	<!--
+		***************************************************************************
+		** Extension schemas
+		***************************************************************************
+	-->
+		<!--
+			***************************************************************************
+			** MODS
+			***************************************************************************
+		-->
+	<extension_schema>
+		<name>Metadata Object and Description Schema (MODS)</name>
+		<URI>http://www.loc.gov/standards/mods/</URI>
+		<context>mets/dmdSec/mdWrap/xmlData/mods</context>
+		<note>Das Metadata Object and Description Schema wird für alle desriptive Metadaten
+		genutzt. Es sind keine weiteren Metadatenformate zur bibliographischen Beschreibung der
+		Zeitungen erlaubt.</note>
+	</extension_schema>
+		<!--
+			***************************************************************************
+			** ALTO
+			***************************************************************************
+		-->
+	<extension_schema>
+		<name>ALTO (Analyzed Layout and Text Object)</name>
+		<URI>http://www.loc.gov/standards/alto/</URI>
+		<context>mets/fileSec/fileGrp and mets/strucMap</context>
+		<note>ALTO wird ausschließlich in externen XML-Dateien genutzt. Diese werden
+		durch mets/fileSec/fileGrp und mets/strucMap referenziert.</note>
+	</extension_schema>
+
+	<!--
+		***************************************************************************
+		** Description Rules
+		***************************************************************************
+	-->
+	<description_rules>
+		<head>Aufnahme von bibliographischen Metadaten</head>
+
+		<p>Bibliographische Metadaten wie Titel, Autoren, Kategorien etc. unterliegen den zeitungsspezifischen
+		Aufnahmeregeln, die von der Bibliothek in einem gesonderten Dokument festgelegt werden.</p>
+
+		<p>Ist die Regel für die Aufnahme von bibliographischen Metadaten unklar, so ist mit der Bibliothek
+		Rücksprache zu halten.</p>
+
+		<p>Zusätzliche Regeln zur Aufnahme von bibliographischen Metadaten in diesem Profil, wie etwa
+		"in Vorlageform" oder "wie in der Vorlage" deuten immer eine 1:1 Übernahme des Textes von der Vorlage an.</p>
+
+		<p>Die Werte von IDs können frei gewählt werden. Sie sollten der Nachvollziehbarkeit wegen allerdings
+		"sprechend" sein.</p>
+	</description_rules>
+
+	<!--
+		***************************************************************************
+		** Controlled Vocabularies
+		***************************************************************************
+	-->
+	<controlled_vocabularies>
+		<!--
+			***************************************************************************
+			** ISO 639-2b
+			***************************************************************************
+		-->
+		<vocabulary>
+			<name>ISO 639-2b</name>
+			<maintenance_agency>Library of Congress</maintenance_agency>
+			<URI>http://www.loc.gov/standards/iso639-2/</URI>
+			<context>
+				<p>mods:languageTerm</p>
+			</context>
+
+			<description>
+				<p>Sämtliche Sprachangaben innerhalb des MODS-Extension Schemas erfolgen gemäß
+				ISO 639-2b Sprachcodes.</p>
+			</description>
+		</vocabulary>
+		<!--
+			***************************************************************************
+			** MARC Relator Codes
+			***************************************************************************
+		-->
+		<vocabulary>
+			<name>MARC Relator Codes</name>
+			<maintenance_agency>Library of Congress</maintenance_agency>
+			<URI>http://www.loc.gov/marc/relators/</URI>
+			<context>
+				<p>mods:roleTerm</p>
+			</context>
+			<description>
+				<p>Kodierungen für Rollen innerhalb des MODS-Extension Schemas
+				erfolgen gemäß den MARC Relator Codes.</p>
+			</description>
+		</vocabulary>
+		<!--
+			***************************************************************************
+			** MARC Source Codes for Genre
+			***************************************************************************
+		-->
+		<vocabulary>
+			<name>MARC Value List for Genre Terms</name>
+			<maintenance_agency>Library of Congress</maintenance_agency>
+			<URI>http://www.loc.gov/marc/sourcecode/genre/genrelist.html</URI>
+			<context>
+				<p>mods:genre</p>
+			</context>
+			<description>
+				<p>Kodierungen für Genres innerhalb des MODS-Extension Schemas
+				erfolgen gemäß den MARC Value List for Genre Terms.</p>
+			</description>
+		</vocabulary>
+		<!--
+			***************************************************************************
+			** W3C Date and Time Formats
+			***************************************************************************
+		-->
+		<vocabulary>
+			<name>W3C Date and Time Formats</name>
+			<maintenance_agency>W3C</maintenance_agency>
+			<URI>http://www.w3.org/TR/NOTE-datetime</URI>
+			<context>
+				<p>mods:dateIssued</p>
+			</context>
+			<description>
+				<p>Zeitangaben werden in diesem Profil durch den W3C Date and Time Formats Standard beschrieben.</p>
+			</description>
+		</vocabulary>
+		<!--
+			***************************************************************************
+			** Artikelkategorien
+			***************************************************************************
+		-->
+		<vocabulary>
+			<name>Artikelkategorien</name>
+			<maintenance_agency>Staatsbibliothek zu Berlin</maintenance_agency>
+			<URI></URI>
+			<values>
+				<value>Nachricht</value>
+				<value>Familienanzeigen</value>
+				<value>Werbung</value>
+				<value>Listen, Tabellen und Vermischtes</value>
+				<value>Illustration</value>
+				<value>Foto</value>
+				<value>Karikatur</value>
+				<value>Karte</value>
+				<value>Grafik</value>
+			</values>
+			<context>
+				<p>mods:genre @type="articleCategory"</p>
+			</context>
+			<description>
+				<p>Jeder Artikel muss mit einer Artikelkategorie versehen werden.</p>
+			</description>
+		</vocabulary>
+	</controlled_vocabularies>
+
+
+	<!--
+		***************************************************************************
+		** Structural Requirements
+		***************************************************************************
+	-->
+	<structural_requirements>
+		<!--
+			***************************************************************************
+			**  Root Element
+			***************************************************************************
+		-->
+		<metsRootElement>
+			<requirement ID="metsRoot1" RELATEDMAT="example01">
+				<head>METS Root Element</head>
+
+				<p>Das METS Root Element ist mets und enthält folgende Namespaces:</p>
+				<p>xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</p>
+				<p>xmlns:xlink="http://www.w3.org/1999/xlink"</p>
+				<p>xmlns:mods="http://www.loc.gov/mods/v3"</p>
+				<p>xmlns:mets="http://www.loc.gov/METS/"</p>
+				<p>xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"</p>
+
+				<p>Das METS Root Element muss das @PROFILE Attribut mit dem Wert
+				"http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_draft.xml"
+				enthalten.</p>
+
+				<p>Das METS Root Element muss das @OBJID Attribut mit einer das METS-Dokument identifizierenden
+				ID enthalten. Die Staatsbibliothek zu Berlin gibt die Regeln der Vergabe dieser ID bei der Auftragsgebung an.</p>
+
+				<p>Das METS Root Element muss das @TYPE Attribut mit dem Wert "Newspaper" enthalten.</p>
+			</requirement>
+		</metsRootElement>
+		<!--
+			***************************************************************************
+			**  METS Header
+			***************************************************************************
+		-->
+		<metsHdr>
+			<requirement ID="metsHdr1" RELATEDMAT="example02">
+				<head>METS Header Element und Unterlemente</head>
+
+				<p>Das METS Header Element enthält die Attribute @CREATEDATE
+				mit dem Erstellungszeitpunkt des METS-Dokuments und @LASTMODDATE mit dem
+				Änderungszeitpunkt (wenn vorhanden,	ansonsten gleich dem Estellungszeitpunkt)
+				des METS-Dokuments im UTC DateTime Format (siehe http://www.w3.org/TR/NOTE-datetime).</p>
+
+				<p>Das METS Header Element enthält die Attribute @RECORDSTATUS
+				mit dem statischen Wert "production".</p>
+
+				<p>Das METS Header Element enthält das Unterelement mets:agent mit den Attributen
+				@ROLE, welches den statischen Wert "CREATOR" enthält und @TYPE, welches den statischen
+				Wert "ORGANIZATION" enthält. Dieses Element enthält den Namen
+				der Institution, die das METS-Dokument erstellt hat.</p>
+
+				<p>Das METS Header Element enthält das Unterelement mets:agent mit den Attributen
+				@ROLE, welches den statischen Wert "CREATOR" enthält, @TYPE, welches den statischen
+				Wert "OTHER" enthält und @OTHERTYPE, welches den statischen Wert "SOFTWARE" enthält.
+				Dieses Element enthält den Namen der Software, mit deren Hilfe das METS-Dokument erstellt
+				wurde.</p>
+			</requirement>
+		</metsHdr>
+		<!--
+			***************************************************************************
+			**  METS Descriptive Metdata Section
+			***************************************************************************
+		-->
+		<dmdSec>
+			<requirement>
+				<head>Metadatensektion</head>
+
+				<p>Das Element mets:dmdSec hat eine ID.</p>
+
+				<p>Die Metadatensektion enthält ein MODS Metdatensatz, der das digitale Objekt beschreibt
+				und vom Unterelement mets:mdwrap umschlossen wird.</p>
+
+				<p>Der MODS Metadatensatz enthält eine ID.</p>
+
+				<p>Der MODS Metadatensatz besteht aus der Beschreibung des Zeitungstitels, der Ausgabe und den Beschreibungen
+				der Artikel der Ausgabe.</p>
+			</requirement>
+
+			<requirement RELATEDMAT="example03">
+				<head>Metadaten zum Zeitungstitel und zur Zeitungsausgabe</head>
+
+				<p>Die Beschreibung der Zeitungsausgabe muss folgende Angaben enthalten: Titel der
+				Zeitung, Genre (newspaper), Ausgabedatum im W3C-Date-Time-Format, Ausgabedatum in Vorlageform,
+				Definition der Sprache im ISO 639-2b Format (mods:languageTerm) und den Wochentag (mods:dateOther).</p>
+
+				<p>Optionale Angaben für die Zeitungsausge sind: Untertitel (mods:subTitle),
+				Ausgabestufe (z.B. Morgen-Ausgabe oder Abendausgabe) (mods:originInfo/mods:edition).</p>
+
+				<p>Die Beschreibung des Zeitungstitels geschieht durch das Element mods:relatedItem@type="host".</p>
+
+				<p>Das Element mods:relatedItem@type="host" hat eine ID.</p>
+
+				<p>Das Element mods:relatedItem@type=host muss folgende Angaben enthalten: Verknüpfung mit der bibliographischen
+				Aufnahme in der Zeitschriftendatenbank durch die ZDB-ID (mods:recordIdentifier@source="zdb"),
+				Titel der Zeitung, den Herausgeber (mods:originInfo/mods:publisher) und den
+				Erscheinungsort (mods:originInfo/mods:place/mods:placeTerm).</p>
+
+				<p>Optionale Angaben für das Element mods:relatedItem@type=host sind: Titel der
+				Lokal-/Regionalausgabe (mods:partName)</p>
+
+				<p>Zusätzlich muss die Ausgabe in Relation mit dem Gesamttitel der Zeitung gesetzt werden.
+				Dies geschiet durch das Unterelement mods:part, welches folgende Angaben enthalten sollte:
+				den Jahrgang der Ausgabe (mods:detail@type="volume"/mods:number und mods:detail@type="volume"/mods:caption),
+				die Nummer der Ausgabe (mods:detail@type="issue"/mods:number und mods:detail@type="issue"/mods:caption).</p>
+			</requirement>
+
+			<requirement RELATEDMAT="example04">
+				<head>Metadaten zu Zeitungsartikeln</head>
+
+				<p>Die Beschreibung eines Zeitungsartikels geschiet mit Hilfe des Unterelements
+				mods:relatedItem (relatedItem@type="constituent").</p>
+
+				<p>Jedes Unterelement mods:relatedItem hat eine ID.</p>
+
+				<p>Die Beschreibung eines Zietungsartikels muss folgende Angaben enthalten:
+				Titel, Genre und Artikelkategorie.</p>
+
+				<p>Das Genre eines Artikel kann "article" oder "illustrated article" sein.</p>
+
+				<p>Eine Artikelkategorie ist entwerder Nachrichten, Familienanzeigen, Werbung,
+				'Listen, Tabellen und Vermischtes', Illustration, Foto, Karikatur, Karte oder Grafik.
+				Die Grundlage für die Entscheidung für eine
+				Artikelkategorie ist der Erfassungsanweisung zu entnehmen.</p>
+
+				<p>Optionale Angaben für die Arteikelbeschreibung sind: Untertitel, Autor und Schlagworte.</p>
+
+				<p>Autoren werden in Vorlageform übernommen. Intialien können aufgelöst werden.</p>
+
+			</requirement>
+		</dmdSec>
+		<!--
+			***************************************************************************
+			**  METS Administrative Metadata Section
+			***************************************************************************
+		-->
+		<amdSec>
+			<requirement RELATEDMAT="example05">
+				<head>Administrative Metdata Section</head>
+
+				<p>Zur Prüfung der Validität des METS-Containers und zur Darstellung der
+				Digitalisate durch den DFG-Viewer wird eine Administrative Metdata Section
+				benötigt. Diese Section wird statisch in jeden METS-Container eingebunden
+				(siehe Beispiel 5).</p>
+
+				<p>Die IDs der Knoten mets:digiprovMD und mets:rights lauten abweichend von den
+				Beispielen in diesem Profil immer ID="digiprov8208980" und ID="rights8208980".
+				Abweichende Beispiele sind der Validität dieses Dokuments geschuldet.</p>
+			</requirement>
+		</amdSec>
+		<!--
+			***************************************************************************
+			**  METS File Section
+			***************************************************************************
+		-->
+		<fileSec>
+			<requirement RELATEDMAT="example06">
+				<head>File Section</head>
+
+				<p>Die File Section besteht aus mindestens drei File Groups (fileGrp).
+				Die erste File Group (@USE="MASTER") muss den URL der "Masterdateien/images" enthalten. Die
+				zweite File Group (USE="DEFAULT") enthält den URL der Dateien/Images, auf deren Grundlage
+				die OCR durchgeführt wurde. Die dritte File Group (USE="ALTO") enthält den URL der
+				XML-Dateien der OCR Ergebnisse jeder Seite im ALTO Format.</p>
+
+				<p>Die URLs haben die Form: http://zefys.staatsbibliothek-berlin.de/storage/[PFAD zur Datei wie in der abzuliefernden Ordnerstruktur]</p>
+			</requirement>
+		</fileSec>
+		<!--
+			***************************************************************************
+			**  METS Structure Map
+			***************************************************************************
+		-->
+		<structMap>
+			<requirement RELATEDMAT="example07">
+				<head>Structure Map PHYSICAL</head>
+
+				<p>Die Physical Structure Map ordnet die Dateien der File Section in eine physische
+				Seitenreihenfolge.</p>
+
+				<p>Die Physical Structure Map hat eine ID und das Attribut @TYPE="PHYSICAL".</p>
+
+				<p>Die Physical Structure Map enthält ein Unterelement mets:div mit einer ID, dem
+				Attribut @TYPE="physSequence" und Verweise auf die ID des entsprechenden Descriptive
+				Metadata Knotens durch das Attribut @DMDID und des Administariv Metadata Knotens durch
+				das Attribut @ADMID.</p>
+
+				<p>Das Unterelment mets:div enthält für jede Seite der Ausgabe ein Unterelement mets:div
+				mit einer ID, dem Attribut @TYPE="page", der physischen Seitenzahl im Attribut @ORDER sowie
+				der Seitennummerierung im Attribit @ODERLABLE.</p>
+
+				<p>Die Elemente mets:div des Typs "page" enthalten jeweils drei Unterelemente mets:fptr
+				mit den Verweisen auf die ID der jeweiligen Dateien (MASTER, DEFAULT und ALTO)
+				aus der File Section durch das Attribut	@FILEID.</p>
+			</requirement>
+
+			<requirement RELATEDMAT="example08">
+				<head>Structure Map LOGICAL</head>
+
+				<p>Die Logical Structure Map fügt die Zonen der Texterkennung zu einer logischen Struktur von
+				Artikeln zusammen und bringt sie ggf. in Lesereihenfolge.</p>
+
+				<p>Die Logical Structure Map hat eine ID das Attribut @TYPE="LOGICAL".</p>
+
+				<p>Die Logical Structure Map enthält ein Unterelement mets:div mit einer ID, dem
+				Attribut @TYPE="issue" und den Verweisen auf die ID des entsprechenden Descriptive
+				Metadata Knotens durch das Attribut @DMDID und des Administariv Metadata Knotens durch
+				das Attribut @ADMID.</p>
+
+				<p>Das Element mets:div mit dem Typ "issue" hat für jeden Artikel der Ausgabe ein
+				Unterelement mets:div mit dem Attribut @TYPE="article" und den Verweis auf die ID des
+				entsprechenden Knotens des Artikels in der Descriptive Metadata Section durch das
+				Attribut @DMDID.</p>
+
+				<p>Die Beschreibung eines Artikels besteht aus mehreren Elementen und Unterelementen, deren
+				Vorhandensein von der Aufteilung des Artikels in Seiten und Zonen abhängig ist.</p>
+
+				<p>Ist der Artikel nur auf einer Seite zu finden, hat das Element mets:div vom Typ
+				"article" nur ein Unterelement mets:div. Findet sich der Artikel auf mehreren Seiten
+				wieder, muss es dementsprechend mehr Unterelemente geben.</p>
+
+				<p>Die Knoten, die pro Seite generiert werden müssen, haben eine ID, das Attribut
+				@TYPE="article-part" und das Attribut @ORDER.</p>
+
+				<p>Das Attribut @ORDER bringt die Knoten vom Typ "article-part" in Lesereihenfolge.
+				Entspricht die Lesereihenfolge des Artikels nicht der physischen Seitenreihenfolge,
+				wird dies durch das Attribut @ORDER angezeigt.</p>
+
+				<p>Jeder Knoten mets:div des Typs "article-part" hat ein oder mehrere Unterelemente
+				mets:div vom Typ "article-zone" (@TYPE="article-zone"), in denen die rechteckigen Zonen,
+				aus denen ein Artikel besteht, beschrieben werden.</p>
+
+				<p>Jeder Knoten vom Typ "article-part" hat eine ID und zwei Unterelemente.</p>
+
+				<p>Ein Unterelment mets:fptr verweist im Unterelement mets:area durch das Attribut @FILEID
+				auf die ID des entsprechenden ALTO/XML-Dokuments aus der File Section, sowie auf die ID
+				des dem Artikel entsprechenden ALTO-TextBlock durch das Attribut @BEGIN und dem Attribut
+				@BETYPE="IDREF".</p>
+
+				<p>Das andere Unterelement mets:fptr verweist im Unterelement mets:area durch das Attribut @FILEID
+				auf die ID des entsprechenden PRESENTATION-Images. Das mets:area Element hat zusätzlich das
+				Attribut @SHAPE="RECT" (die Form der Artikelzone sollte immer rechteckig sein)
+				und @COORDS, welches die Koordinaten ([X, Y, W, H] in mm/10) der Artikelzone enthält.</p>
+
+			</requirement>
+		</structMap>
+		<!--
+			***************************************************************************
+			**  METS Structure Link
+			***************************************************************************
+		-->
+		<structLink>
+			<requirement RELATEDMAT="example09">
+				<head>Structural Link Section</head>
+
+				<p>Die Structural Link Section verbindet die logische Struktur mit der physischen Struktur.</p>
+
+				<p>Jeder Knoten aus der Logical Structure Map vom Typ "article-part" und "article-zone"
+				wird mit dem entsprechenden Knoten aus der Physical Structure Map verbunden.</p>
+			</requirement>
+		</structLink>
+		<!--
+			***************************************************************************
+			**  METS Behaivior Section
+			***************************************************************************
+		-->
+		<behaviorSec>
+			<requirement>
+				<head>Behaivior Section</head>
+
+				<p>Dieses Profil nutzt keine Behaivior Section.</p>
+			</requirement>
+		</behaviorSec>
+		<!--
+			***************************************************************************
+			**  METS Multi Section
+			***************************************************************************
+		-->
+		<multiSection>
+			<requirement>
+				<head>Multi Section</head>
+
+				<p>Dieses Profil nutzt keine Multi Section.</p>
+			</requirement>
+		</multiSection>
+	</structural_requirements>
+	<technical_requirements>
+		<content_files>
+			<requirement>
+				<head>Textdateien</head>
+				<p>Textdateien, die von METS-Dateien dieses Profils referenziert werden
+				müssen im ALTO (Analyzed Layout and Text Object) XML-Format kodiert sein.</p>
+			</requirement>
+		</content_files>
+	</technical_requirements>
+	<tool>
+		<note>
+			<head>Tools</head>
+			<p>Zurzeit sind keine Tools mit diesem Profil assoziiert.</p>
+		</note>
+	</tool>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.1: METS Root Element
+	===========================================================================
+	-->
+	<Appendix ID="example01" LABEL="METS Root Element" NUMBER="1">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:structMap>
+				<mets:div />
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.2: METS Header-Element und seine Unterelemente
+	===========================================================================
+	-->
+	<Appendix ID="example02" LABEL="METS Header-Element und seine Unterelemente" NUMBER="2">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="2532910-8/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:metsHdr CREATEDATE="2009-04-23T17:46:21+01:00" LASTMODDATE="2009-04-23T17:46:21+01:00">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>METS Building Ltd.</mets:name>
+				</mets:agent>
+				<mets:agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
+					<mets:name>METS Building Tool Version 0.0.7</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<mets:structMap>
+				<mets:div />
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.3: Metadaten zum Zeitungstitel und zur Zeitungsausgabe
+	===========================================================================
+	-->
+	<Appendix ID="example03" LABEL="Metadaten zur Zeitungsausgabe" NUMBER="3">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="25329108/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:dmdSec ID="DMD_ex03">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods ID="DMD_issue_ex03">
+							<!-- Beschreibung der Ausgabe -->
+							<mods:titleInfo>
+								<mods:title>Neues Deutschland</mods:title>
+								<mods:subTitle>Organ des Zentralkomitees der SED</mods:subTitle>
+							</mods:titleInfo>
+							<mods:genre authority="marcgt">newspaper</mods:genre>
+							<mods:originInfo>
+								<mods:edition>Abendausgabe</mods:edition>
+								<mods:dateIssued encoding="w3cdtf" point="start" keyDate="yes" qualifier="approximate">1899-12-31</mods:dateIssued>
+								<mods:dateIssued point="start" keyDate="yes" qualifier="approximate">31. Dezember 1899</mods:dateIssued>
+								<mods:dateOther>Sonntag</mods:dateOther>
+							</mods:originInfo>
+							<mods:language>
+								<mods:languageTerm type="code" authority="iso639-2b">de</mods:languageTerm>
+							</mods:language>
+							<!-- Beschreibung der Zeitung -->
+							<mods:relatedItem ID="DMD_host01_ex03" type="host">
+								<mods:recordInfo>
+									<mods:recordIdentifier source="zdb">2532910-8</mods:recordIdentifier>
+								</mods:recordInfo>
+								<mods:titleInfo>
+									<mods:title>Neues Deutschland</mods:title>
+									<mods:partName>Berliner Ausgabe</mods:partName>
+								</mods:titleInfo>
+								<mods:originInfo>
+									<mods:publisher>Sozialistische Einheitspartei Deutschlands</mods:publisher>
+									<mods:place>
+										<mods:placeTerm>Berlin</mods:placeTerm>
+									</mods:place>
+								</mods:originInfo>
+								<!-- Einordnung der Ausgabe -->
+								<mods:part>
+									<mods:detail type="volume">
+										<mods:number>99</mods:number>
+										<mods:caption>Jahrgang</mods:caption>
+									</mods:detail>
+									<mods:detail type="issue">
+										<mods:number>365</mods:number>
+										<mods:caption>Nr.</mods:caption>
+									</mods:detail>
+								</mods:part>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:structMap>
+				<mets:div />
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.4: Metadaten zu Zeitungsartikeln
+	===========================================================================
+	-->
+	<Appendix ID="example04" LABEL="Metadaten zu Zeitungsausartikeln" NUMBER="4">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="25329108/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:dmdSec ID="DMD_ex04">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods ID="DMD_issue_ex04">
+							<!-- Beschreibung der Ausgabe -->
+							<mods:titleInfo>
+								<mods:title>Neues Deutschland</mods:title>
+								<mods:subTitle>Organ des Zentralkomitees der SED</mods:subTitle>
+							</mods:titleInfo>
+							<mods:genre authority="marcgt">newspaper</mods:genre>
+							<mods:originInfo>
+								<mods:edition>Abendausgabe</mods:edition>
+								<mods:dateIssued encoding="w3cdtf" point="start" keyDate="yes" qualifier="approximate">1899-12-31</mods:dateIssued>
+								<mods:dateIssued point="start" keyDate="yes" qualifier="approximate">31. Dezember 1899</mods:dateIssued>
+								<mods:dateOther>Sonntag</mods:dateOther>
+								<mods:place>
+									<mods:placeTerm>Berlin</mods:placeTerm>
+								</mods:place>
+							</mods:originInfo>
+							<mods:language>
+								<mods:languageTerm type="code" authority="iso639-2b">de</mods:languageTerm>
+							</mods:language>
+							<!-- Beschreibung der Zeitung -->
+							<mods:relatedItem ID="DMD_host01_ex04" type="host">
+								<mods:recordInfo>
+									<mods:recordIdentifier source="zdb">2532910-8</mods:recordIdentifier>
+								</mods:recordInfo>
+								<mods:titleInfo>
+									<mods:title>Neues Deutschland</mods:title>
+									<mods:partName>Berliner Ausgabe</mods:partName>
+								</mods:titleInfo>
+								<mods:originInfo>
+									<mods:publisher>Sozialistische Einheitspartei Deutschlands</mods:publisher>
+									<mods:place>
+										<mods:placeTerm>Berlin</mods:placeTerm>
+									</mods:place>
+								</mods:originInfo>
+								<!-- Einordnung der Ausgabe -->
+								<mods:part>
+									<mods:detail type="volume">
+										<mods:number>99</mods:number>
+										<mods:caption>Jahrgang</mods:caption>
+									</mods:detail>
+									<mods:detail type="issue">
+										<mods:number>365</mods:number>
+										<mods:caption>Nr.</mods:caption>
+									</mods:detail>
+								</mods:part>
+							</mods:relatedItem>
+							<!-- Beschreibung der Artikel -->
+							<mods:relatedItem ID="DMD_article01" type="constituent">
+								<mods:titleInfo>
+									<mods:title>Jahrhundertwende</mods:title>
+									<mods:subTitle>Heute endet das Jahrhundert</mods:subTitle>
+								</mods:titleInfo>
+								<mods:name type="personal">
+									<mods:displayForm>Dr. Max von Mustermann</mods:displayForm>
+									<mods:role>
+										<mods:roleTerm type="code" authority="marcrelator">aut</mods:roleTerm>
+									</mods:role>
+								</mods:name>
+								<!-- Artikel mit Bild -->
+								<mods:genre>illustrated article</mods:genre>
+								<!-- Artikel der Kategorie Nachricht -->
+								<mods:genre type="articleCategory">Nachricht</mods:genre>
+							</mods:relatedItem>
+							<mods:relatedItem ID="DMD_article02" type="constituent">
+								<mods:titleInfo>
+									<mods:title>Große Sivesterfeier</mods:title>
+								</mods:titleInfo>
+								<mods:name type="personal">
+									<mods:displayForm>HG</mods:displayForm>
+									<mods:role>
+										<mods:roleTerm type="code" authority="marcrelator">aut</mods:roleTerm>
+									</mods:role>
+								</mods:name>
+								<!-- Artikel ohne Bild -->
+								<mods:genre>article</mods:genre>
+								<!-- Artikel der Kategorie Nachricht -->
+								<mods:genre type="articleCategory">Nachricht</mods:genre>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<mets:structMap>
+				<mets:div />
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.5: Administrative Metadata Section
+	===========================================================================
+	-->
+	<Appendix ID="example05" LABEL="Administrative Metadata Section" NUMBER="5">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="25329108/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:amdSec ID="AMD_issue_ex05">
+				<mets:rightsMD ID="rights8208980_ex05">
+					<mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="DVRIGHTS">
+						<mets:xmlData>
+							<dv:rights xmlns:dv="http://dfg-viewer.de/">
+								<dv:owner>Staatsbibliothek zu Berlin</dv:owner>
+								<dv:ownerLogo>http://digital-b.staatsbibliothek-berlin.de/digitale_bibliothek/pix/dfg_logo_sbb.gif</dv:ownerLogo>
+								<dv:ownerSiteURL>http://staatsbibliothek-berlin.de</dv:ownerSiteURL>
+							</dv:rights>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+				<mets:digiprovMD ID="digiprov8208980_ex05">
+					<mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="DVLINKS">
+						<mets:xmlData>
+							<dv:links xmlns:dv="http://dfg-viewer.de/">
+								<dv:reference>http://dispatch.opac.ddb.de/DB=1.1/CMD?ACT=SRCHA&amp;IKT=8506&amp;SRT=LST_ty&amp;TRM=8208980</dv:reference>
+								<dv:presentation>http://zefys-wdw-typo3-p.sbb.spk-berlin.de/dod-list/</dv:presentation>
+							</dv:links>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+			</mets:amdSec>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.6: File Section und File Groups
+	===========================================================================
+	-->
+	<Appendix ID="example06" LABEL="File Section und File Groups" NUMBER="6">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="25329108/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:fileSec>
+				<mets:fileGrp USE="MASTER">
+					<mets:file ID="master01" MIMETYPE="application/pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/seiten/pdf/001.pdf" />
+					</mets:file>
+					<mets:file ID="master02" MIMETYPE="application/pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/seiten/pdf/002.pdf" />
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="DEFAULT">
+					<mets:file ID="default01" MIMETYPE="image/tiff">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/seiten/tiff/001.tif" />
+					</mets:file>
+					<mets:file ID="default02" MIMETYPE="image/tiff">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/seiten/tiff/002.tif" />
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="ALTO">
+					<mets:file ID="alto01" MIMETYPE="application/xml">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/alto/001.xml" />
+					</mets:file>
+					<mets:file ID="alto02" MIMETYPE="application/xml">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/alto/002.xml" />
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<mets:structMap>
+				<mets:div />
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.7: Physical Structure Map
+	===========================================================================
+	-->
+	<Appendix ID="example07" LABEL="Physical Structure Map" NUMBER="7">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="25329108/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:amdSec ID="ADM_issue_ex07"/>
+			<mets:dmdSec ID="DMD_issue_ex07"/>
+			<mets:structMap ID="PSMP_ex07" TYPE="PHYSICAL">
+				<mets:div TYPE="physSequence" DMDID="DMD_issue_ex07" ADMID="ADM_issue_ex07">
+					<mets:div TYPE="page" ID="divpage1" ORDER="1" ORDERLABLE="1">
+						<mets:fptr FILEID="master01"/>
+						<mets:fptr FILEID="default01"/>
+						<mets:fptr FILEID="alto01"/>
+					</mets:div>
+					<mets:div TYPE="page" ID="divpage2" ORDER="2" ORDERLABLE="2">
+						<mets:fptr FILEID="master02"/>
+						<mets:fptr FILEID="default02"/>
+						<mets:fptr FILEID="alto02"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.8: Logical Structure Map
+	===========================================================================
+	-->
+	<Appendix ID="example08" LABEL="Logical Structure Map" NUMBER="8">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="25329108/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:amdSec ID="ADM_issue_ex08"/>
+			<mets:dmdSec ID="DMD_issue_ex08"/>
+			<mets:structMap ID="LSMP_ex08" TYPE="LOGICAL">
+				<mets:div TYPE="issue" DMDID="DMD_issue_ex08" ADMID="ADM_issue_ex08">
+					<!-- Artikel auf einer Seite mit mehreren Spalten -->
+					<mets:div ID="divarticle1" TYPE="article" DMDID="DMD_article01">
+						<mets:div ID="divarticle1-1" TYPE="article-part" ORDER="1">
+							<!-- erste Spalte -->
+							<mets:div ID="artzone1-1" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default01" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto01" BETYPE="IDREF" BEGIN="TextBlock_01-1"/>
+								</mets:fptr>
+							</mets:div>
+							<!-- zweite Spalte -->
+							<mets:div ID="artzone1-2" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default01" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto01" BETYPE="IDREF" BEGIN="TextBlock_01-2"/>
+								</mets:fptr>
+							</mets:div>
+						</mets:div>
+					</mets:div>
+					<!-- Ein Artikel auf mehreren Seiten -->
+					<mets:div ID="divarticle2" TYPE="article" DMDID="DMD_article02">
+						<!-- erste Seite -->
+						<mets:div ID="divarticle2-1" TYPE="article-part" ORDER="1">
+							<!-- erste Seite, erste Spalte -->
+							<mets:div ID="artzone2-1" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default01" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto01" BETYPE="IDREF" BEGIN="TextBlock_02-1"/>
+								</mets:fptr>
+							</mets:div>
+							<!-- erste Seite, zweite Spalte -->
+							<mets:div ID="artzone2-2" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default01" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto01" BETYPE="IDREF" BEGIN="TextBlock_02-2"/>
+								</mets:fptr>
+							</mets:div>
+						</mets:div>
+						<!-- Zweite Seite -->
+						<mets:div ID="divarticle2-2" TYPE="article-part" ORDER="2">
+							<!-- zweite Seite, erste Spalte -->
+							<mets:div ID="artzone2-3" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default02" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto02" BETYPE="IDREF" BEGIN="TextBlock_01-1"/>
+								</mets:fptr>
+							</mets:div>
+							<!-- zweite Seite, zweite Spalte -->
+							<mets:div ID="artzone2-4" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default02" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto02" BETYPE="IDREF" BEGIN="TextBlock_01-2"/>
+								</mets:fptr>
+							</mets:div>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.9: METS Structural Link
+	===========================================================================
+	-->
+	<Appendix ID="example09" LABEL="Structural Link Section" NUMBER="9">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="25329108/1899-12-31-1"
+				TYPE="newspaper">
+			<mets:structMap>
+				<mets:div />
+			</mets:structMap>
+			<mets:structLink>
+				<mets:smLink xlink:from="divarticle1-1" xlink:to="divpage1" />
+				<mets:smLink xlink:from="artzone1-1" xlink:to="divpage1" />
+				<mets:smLink xlink:from="artzone1-2" xlink:to="divpage1" />
+				<mets:smLink xlink:from="divarticle2-1" xlink:to="divpage1" />
+				<mets:smLink xlink:from="artzone2-1" xlink:to="divpage1" />
+				<mets:smLink xlink:from="artzone2-2" xlink:to="divpage1" />
+				<mets:smLink xlink:from="divarticle2-2" xlink:to="divpage2" />
+				<mets:smLink xlink:from="artzone2-3" xlink:to="divpage2" />
+				<mets:smLink xlink:from="artzone2-4" xlink:to="divpage2" />
+			</mets:structLink>
+		</mets:mets>
+	</Appendix>
+	<!--
+	===========================================================================
+	==  Beispiel Nr.10: Vollständiges Beispiel
+	===========================================================================
+	-->
+	<Appendix ID="example10" LABEL="Vollständiges Beispiel" NUMBER="10">
+		<mets:mets 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+				xmlns:xlink="http://www.w3.org/1999/xlink"
+				xmlns:mods="http://www.loc.gov/mods/v3"
+				xmlns:mets="http://www.loc.gov/METS/"
+				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
+				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				OBJID="25329108/1899-12-31-1"
+				TYPE="newspaper">
+			<!-- METS Header -->
+			<mets:metsHdr CREATEDATE="2009-04-23T17:46:21+01:00" LASTMODDATE="2009-04-23T17:46:21+01:00">
+				<mets:agent ROLE="CREATOR" TYPE="ORGANIZATION">
+					<mets:name>METS Building Ltd.</mets:name>
+				</mets:agent>
+				<mets:agent ROLE="CREATOR" TYPE="OTHER" OTHERTYPE="SOFTWARE">
+					<mets:name>METS Building Tool Version 0.0.7</mets:name>
+				</mets:agent>
+			</mets:metsHdr>
+			<!-- Descriptive Metadata Section -->
+			<mets:dmdSec ID="DMD_ex10">
+				<mets:mdWrap MDTYPE="MODS">
+					<mets:xmlData>
+						<mods:mods ID="DMD_issue_ex10">
+							<!-- Beschreibung der Ausgabe -->
+							<mods:titleInfo>
+								<mods:title>Neues Deutschland</mods:title>
+								<mods:subTitle>Organ des Zentralkomitees der SED</mods:subTitle>
+							</mods:titleInfo>
+							<mods:genre authority="marcgt">newspaper</mods:genre>
+							<mods:originInfo>
+								<mods:edition>Abendausgabe</mods:edition>
+								<mods:dateIssued encoding="w3cdtf" point="start" keyDate="yes" qualifier="approximate">1899-12-31</mods:dateIssued>
+								<mods:dateIssued point="start" keyDate="yes" qualifier="approximate">31. Dezember 1899</mods:dateIssued>
+								<mods:dateOther>Sonntag</mods:dateOther>
+								<mods:place>
+									<mods:placeTerm>Berlin</mods:placeTerm>
+								</mods:place>
+							</mods:originInfo>
+							<mods:language>
+								<mods:languageTerm type="code" authority="iso639-2b">de</mods:languageTerm>
+							</mods:language>
+							<!-- Beschreibung der Zeitung -->
+							<mods:relatedItem ID="DMD_host01_ex10" type="host">
+								<mods:recordInfo>
+									<mods:recordIdentifier source="zdb">2532910-8</mods:recordIdentifier>
+								</mods:recordInfo>
+								<mods:titleInfo>
+									<mods:title>Neues Deutschland</mods:title>
+									<mods:partName>Berliner Ausgabe</mods:partName>
+								</mods:titleInfo>
+								<mods:originInfo>
+									<mods:publisher>Sozialistische Einheitspartei Deutschlands</mods:publisher>
+									<mods:place>
+										<mods:placeTerm>Berlin</mods:placeTerm>
+									</mods:place>
+								</mods:originInfo>
+								<!-- Einordnung der Ausgabe -->
+								<mods:part>
+									<mods:detail type="volume">
+										<mods:number>99</mods:number>
+										<mods:caption>Jahrgang</mods:caption>
+									</mods:detail>
+									<mods:detail type="issue">
+										<mods:number>365</mods:number>
+										<mods:caption>Nr.</mods:caption>
+									</mods:detail>
+								</mods:part>
+							</mods:relatedItem>
+							<!-- Beschreibung der Artikel -->
+							<mods:relatedItem ID="DMD_article01_ex10" type="constituent">
+								<mods:titleInfo>
+									<mods:title>Jahrhundertwende</mods:title>
+									<mods:subTitle>Heute endet das Jahrhundert</mods:subTitle>
+								</mods:titleInfo>
+								<mods:name type="personal">
+									<mods:displayForm>Dr. Max von Mustermann</mods:displayForm>
+									<mods:role>
+										<mods:roleTerm type="code" authority="marcrelator">aut</mods:roleTerm>
+									</mods:role>
+								</mods:name>
+								<!-- Artikel mit Bild -->
+								<mods:genre>illustrated article</mods:genre>
+								<!-- Artikel der Kategorie Nachricht -->
+								<mods:genre type="articleCategory">Nachricht</mods:genre>
+							</mods:relatedItem>
+							<mods:relatedItem ID="DMD_article02_ex10" type="constituent">
+								<mods:titleInfo>
+									<mods:title>Große Sivesterfeier</mods:title>
+								</mods:titleInfo>
+								<mods:name type="personal">
+									<mods:displayForm>HG</mods:displayForm>
+									<mods:role>
+										<mods:roleTerm type="code" authority="marcrelator">aut</mods:roleTerm>
+									</mods:role>
+								</mods:name>
+								<!-- Artikel ohne Bild -->
+								<mods:genre>article</mods:genre>
+								<!-- Artikel der Kategorie Nachricht -->
+								<mods:genre type="articleCategory">Nachricht</mods:genre>
+							</mods:relatedItem>
+						</mods:mods>
+					</mets:xmlData>
+				</mets:mdWrap>
+			</mets:dmdSec>
+			<!-- Aministrative Metadata Section -->
+			<mets:amdSec ID="AMD_issue_ex10">
+				<mets:rightsMD ID="rights8208980_ex10">
+					<mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="DVRIGHTS">
+						<mets:xmlData>
+							<dv:rights xmlns:dv="http://dfg-viewer.de/">
+								<dv:owner>Staatsbibliothek zu Berlin</dv:owner>
+								<dv:ownerLogo>http://digital-b.staatsbibliothek-berlin.de/digitale_bibliothek/pix/dfg_logo_sbb.gif</dv:ownerLogo>
+								<dv:ownerSiteURL>http://staatsbibliothek-berlin.de</dv:ownerSiteURL>
+							</dv:rights>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:rightsMD>
+				<mets:digiprovMD ID="digiprov8208980_ex10">
+					<mets:mdWrap MIMETYPE="text/xml" MDTYPE="OTHER" OTHERMDTYPE="DVLINKS">
+						<mets:xmlData>
+							<dv:links xmlns:dv="http://dfg-viewer.de/">
+								<dv:reference>http://dispatch.opac.ddb.de/DB=1.1/CMD?ACT=SRCHA&amp;IKT=8506&amp;SRT=LST_ty&amp;TRM=8208980</dv:reference>
+								<dv:presentation>http://zefys-wdw-typo3-p.sbb.spk-berlin.de/dod-list/</dv:presentation>
+							</dv:links>
+						</mets:xmlData>
+					</mets:mdWrap>
+				</mets:digiprovMD>
+			</mets:amdSec>
+			<!-- File Section -->
+			<mets:fileSec>
+				<mets:fileGrp USE="MASTER">
+					<mets:file ID="master01_ex10" MIMETYPE="application/pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/seiten/pdf/001.pdf" />
+					</mets:file>
+					<mets:file ID="master02_ex10" MIMETYPE="application/pdf">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/seiten/pdf/002.pdf" />
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="DEFAULT">
+					<mets:file ID="default01_ex10" MIMETYPE="image/tiff">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/seiten/tiff/001.tif" />
+					</mets:file>
+					<mets:file ID="default02_ex10" MIMETYPE="image/tiff">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/seiten/tiff/002.tif" />
+					</mets:file>
+				</mets:fileGrp>
+				<mets:fileGrp USE="ALTO">
+					<mets:file ID="alto01_ex10" MIMETYPE="application/xml">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/alto/001.xml" />
+					</mets:file>
+					<mets:file ID="alto02_ex10" MIMETYPE="application/xml">
+						<mets:FLocat LOCTYPE="URL" xlink:href="http://zefys.staatsbibliothek-berlin.de/storage/f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1/alto/002.xml" />
+					</mets:file>
+				</mets:fileGrp>
+			</mets:fileSec>
+			<!-- Physical Structure Map -->
+			<mets:structMap ID="PSMP_ex10" TYPE="PHYSICAL">
+				<mets:div TYPE="physSequence" DMDID="DMD_issue_ex10" ADMID="ADM_issue_ex10">
+					<mets:div TYPE="page" ID="divpage1_ex10" ORDER="1">
+						<mets:fptr FILEID="master01_ex10"/>
+						<mets:fptr FILEID="default01_ex10"/>
+						<mets:fptr FILEID="alto01_ex10"/>
+					</mets:div>
+					<mets:div TYPE="page" ID="divpage2_ex10" ORDER="2">
+						<mets:fptr FILEID="master02_ex10"/>
+						<mets:fptr FILEID="default02_ex10"/>
+						<mets:fptr FILEID="alto02_ex10"/>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+			<!-- Logical Structure Map -->
+			<mets:structMap ID="LSMP_ex10" TYPE="LOGICAL">
+				<mets:div TYPE="issue" DMDID="DMD_issue_ex10" ADMID="ADM_issue_ex10">
+					<!-- Artikel auf einer Seite mit mehreren Spalten -->
+					<mets:div ID="divarticle1_ex10" TYPE="article" DMDID="DMD_article01_ex10">
+						<mets:div ID="divarticle1-1_ex010" TYPE="article-part" ORDER="1">
+							<!-- erste Spalte -->
+							<mets:div ID="artzone1-1_ex10" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default01_ex10" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto01_ex10" BETYPE="IDREF" BEGIN="TextBlock_01-1"/>
+								</mets:fptr>
+							</mets:div>
+							<!-- zweite Spalte -->
+							<mets:div ID="artzone1-2_ex10" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default01_ex10" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto01_ex10" BETYPE="IDREF" BEGIN="TextBlock_01-2"/>
+								</mets:fptr>
+							</mets:div>
+						</mets:div>
+					</mets:div>
+					<!-- Ein Artikel auf mehreren Seiten -->
+					<mets:div ID="divarticle2_ex10" TYPE="article" DMDID="DMD_article02_ex10">
+						<!-- erste Seite -->
+						<mets:div ID="divarticle2-1_ex10" TYPE="article-part" ORDER="1">
+							<!-- erste Seite, erste Spalte -->
+							<mets:div ID="artzone2-1_ex10" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default01_ex10" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto01_ex10" BETYPE="IDREF" BEGIN="TextBlock_02-1"/>
+								</mets:fptr>
+							</mets:div>
+							<!-- erste Seite, zweite Spalte -->
+							<mets:div ID="artzone2-2_ex10" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default01_ex10" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto01_ex10" BETYPE="IDREF" BEGIN="TextBlock_02-2"/>
+								</mets:fptr>
+							</mets:div>
+						</mets:div>
+						<!-- Zweite Seite -->
+						<mets:div ID="divarticle2-2_ex10" TYPE="article-part" ORDER="2">
+							<!-- zweite Seite, erste Spalte -->
+							<mets:div ID="artzone2-3_ex10" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default02_ex10" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto02_ex10" BETYPE="IDREF" BEGIN="TextBlock_01-1"/>
+								</mets:fptr>
+							</mets:div>
+							<!-- zweite Seite, zweite Spalte -->
+							<mets:div ID="artzone2-4_ex10" TYPE="article-zone">
+								<mets:fptr>
+									<mets:area FILEID="default02_ex10" SHAPE="RECT" COORDS="x,y,w,h"/>
+								</mets:fptr>
+								<mets:fptr>
+									<mets:area FILEID="alto02_ex10" BETYPE="IDREF" BEGIN="TextBlock_01-2"/>
+								</mets:fptr>
+							</mets:div>
+						</mets:div>
+					</mets:div>
+				</mets:div>
+			</mets:structMap>
+			<!-- Structural Link Section -->
+			<mets:structLink>
+				<mets:smLink xlink:from="divarticle1-1_ex10" xlink:to="divpage1_ex10" />
+				<mets:smLink xlink:from="artzone1-1_ex10" xlink:to="divpage1_ex10" />
+				<mets:smLink xlink:from="artzone1-2_ex10" xlink:to="divpage1_ex10" />
+				<mets:smLink xlink:from="divarticle2-1_ex10" xlink:to="divpage1_ex10" />
+				<mets:smLink xlink:from="artzone2-1_ex10" xlink:to="divpage1_ex10" />
+				<mets:smLink xlink:from="artzone2-2_ex10" xlink:to="divpage1_ex10" />
+				<mets:smLink xlink:from="divarticle2-2_ex10" xlink:to="divpage2_ex10" />
+				<mets:smLink xlink:from="artzone2-3_ex10" xlink:to="divpage2_ex10" />
+				<mets:smLink xlink:from="artzone2-4_ex10" xlink:to="divpage2_ex10" />
+			</mets:structLink>
+		</mets:mets>
+	</Appendix>
+</METS_Profile>
