@@ -32,8 +32,8 @@
 	===========================================================================
 
 	Version 0.1.7, 10.06.2011, bearbeitet von Knut Lohse
-	  - mögliche Werte bei 'Artikelkategorien' hinzu
-	  - 'Rubriken' hinzu
+		- 	mögliche Werte bei 'Artikelkategorien' hinzu
+		- 	'Rubriken' hinzu
 	Version 0.1.6, 12.04.2010, bearbeitet von Carsten Schulze
 		-	TYPE="Newspaper" -> TYPE="newspaper"
 		-	mets:rightsMD ID="rights_ex##" -> mets:rightsMD ID="rights8208980_ex##"
@@ -62,7 +62,7 @@
 	***************************************************************************
 	-->
 	<URI LOCTYPE="URL">
-		http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_draft.xml
+		https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml
 	</URI>
 
 	<!--
@@ -123,7 +123,7 @@
 		***************************************************************************
 	-->
 	<related_profile RELATIONSHIP="voherige Version" URI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_0.1.6.xml" />
-	<related_profile RELATIONSHIP="aktuelle Version" URI="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_draft.xml" />
+	<related_profile RELATIONSHIP="aktuelle Version" URI="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml" />
 
 	<!--
 		***************************************************************************
@@ -332,7 +332,7 @@
 				<p>xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"</p>
 
 				<p>Das METS Root Element muss das @PROFILE Attribut mit dem Wert
-				"http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange_draft.xml"
+				"https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				enthalten.</p>
 
 				<p>Das METS Root Element muss das @OBJID Attribut mit einer das METS-Dokument identifizierenden
@@ -623,7 +623,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="f751b630-922b-11de-8a39-0800200c9a66/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:structMap>
@@ -642,7 +642,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="2532910-8/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:metsHdr CREATEDATE="2009-04-23T17:46:21+01:00" LASTMODDATE="2009-04-23T17:46:21+01:00">
@@ -669,7 +669,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="25329108/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:dmdSec ID="DMD_ex03">
@@ -738,7 +738,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="25329108/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:dmdSec ID="DMD_ex04">
@@ -846,7 +846,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="25329108/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:amdSec ID="AMD_issue_ex05">
@@ -885,7 +885,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="25329108/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:fileSec>
@@ -930,7 +930,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="25329108/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:amdSec ID="ADM_issue_ex07"/>
@@ -962,7 +962,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="25329108/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:amdSec ID="ADM_issue_ex08"/>
@@ -1052,7 +1052,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="25329108/1899-12-31-1"
 				TYPE="newspaper">
 			<mets:structMap>
@@ -1082,7 +1082,7 @@
 				xmlns:mods="http://www.loc.gov/mods/v3"
 				xmlns:mets="http://www.loc.gov/METS/"
 				xsi:schemaLocation="http://www.loc.gov/METS/ http://www.loc.gov/standards/mets/mets.xsd http://www.loc.gov/mods/v3 http://www.loc.gov/standards/mods/v3/mods-3-3.xsd"
-				PROFILE="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/SBB_Zeitungen_METS-Profil_Exchange.xml"
+				PROFILE="https://raw.github.com/cKlee/SBB_Zeitungen_METS-Profil_Exchange/master/SBB_Zeitungen_METS-Profil_Exchange.xml"
 				OBJID="25329108/1899-12-31-1"
 				TYPE="newspaper">
 			<!-- METS Header -->
