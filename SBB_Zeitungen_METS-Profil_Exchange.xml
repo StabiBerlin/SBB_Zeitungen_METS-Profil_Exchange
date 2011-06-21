@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet href="http://zefys.staatsbibliothek-berlin.de/fileadmin/mets/XSL/echoProfile2html.xsl" type="text/xsl"?>
-<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ ../XSD/mets.profile.v1-2.xsd http://www.loc.gov/METS/ ../XSD/mets.xsd http://www.loc.gov/mods/v3 ../XSD/mods-3-3.xsd http://www.w3.org/1999/xlink ../XSD/xlink.xsd">
+<METS_Profile xmlns="http://www.loc.gov/METS_Profile/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mets="http://www.loc.gov/METS/" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink" xsi:schemaLocation="http://www.loc.gov/METS_Profile/ /xsd/mets.profile.v1-2.xsd http://www.loc.gov/METS/ /xsd/mets.xsd http://www.loc.gov/mods/v3 /xsd/mods-3-3.xsd http://www.w3.org/1999/xlink /xsd/xlink.xsd">
 <!--
 	===========================================================================
 	== SBB Zeitungen METS-Profil, Version 0.1.7, 10.06.2011
