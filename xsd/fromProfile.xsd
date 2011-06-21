@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://www.loc.gov/mods/v3" xmlns:mets="http://www.loc.gov/METS/" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mods="http://www.loc.gov/mods/v3" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <xs:import namespace="http://www.loc.gov/METS/" schemaLocation="metsxml"/>
+    <xs:import namespace="http://www.w3.org/1999/xlink" schemaLocation="xlinkxml"/>
+    <xs:import namespace="http://www.w3.org/2001/XMLSchema-instance" schemaLocation="xsixml"/>
+    <xs:element name="mods">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:titleInfo"/>
+                <xs:element ref="mods:genre"/>
+                <xs:element ref="mods:originInfo"/>
+                <xs:element ref="mods:language"/>
+                <xs:element maxOccurs="unbounded" ref="mods:relatedItem"/>
+            </xs:sequence>
+            <xs:attribute name="ID" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="language">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:languageTerm"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="languageTerm">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:NCName">
+                    <xs:attribute name="authority" use="required" type="xs:NCName"/>
+                    <xs:attribute name="type" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="relatedItem">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element minOccurs="0" ref="mods:recordInfo"/>
+                <xs:element ref="mods:titleInfo"/>
+                <xs:choice>
+                    <xs:sequence>
+                        <xs:element ref="mods:name"/>
+                        <xs:element maxOccurs="unbounded" ref="mods:genre"/>
+                    </xs:sequence>
+                    <xs:sequence>
+                        <xs:element ref="mods:originInfo"/>
+                        <xs:element ref="mods:part"/>
+                    </xs:sequence>
+                </xs:choice>
+            </xs:sequence>
+            <xs:attribute name="ID" use="required" type="xs:NCName"/>
+            <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="recordInfo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:recordIdentifier"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="recordIdentifier">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:integer">
+                    <xs:attribute name="source" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="name">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:displayForm"/>
+                <xs:element ref="mods:role"/>
+            </xs:sequence>
+            <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="displayForm" type="xs:string"/>
+    <xs:element name="role">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:roleTerm"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="roleTerm">
+        <xs:complexType>
+            <xs:simpleContent>
+                <xs:extension base="xs:NCName">
+                    <xs:attribute name="authority" use="required" type="xs:NCName"/>
+                    <xs:attribute name="type" use="required" type="xs:NCName"/>
+                </xs:extension>
+            </xs:simpleContent>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="part">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element maxOccurs="unbounded" ref="mods:detail"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="detail">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:number"/>
+                <xs:element ref="mods:caption"/>
+            </xs:sequence>
+            <xs:attribute name="type" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="number" type="xs:integer"/>
+    <xs:element name="caption" type="xs:NCName"/>
+    <xs:element name="titleInfo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:title"/>
+                <xs:choice minOccurs="0">
+                    <xs:element ref="mods:partName"/>
+                    <xs:element ref="mods:subTitle"/>
+                </xs:choice>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="title" type="xs:string"/>
+    <xs:element name="partName" type="xs:string"/>
+    <xs:element name="subTitle" type="xs:string"/>
+    <xs:element name="genre">
+        <xs:complexType mixed="true">
+            <xs:attribute name="authority" type="xs:NCName"/>
+            <xs:attribute name="type" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="originInfo">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:choice>
+                    <xs:element ref="mods:publisher"/>
+                    <xs:sequence>
+                        <xs:element ref="mods:edition"/>
+                        <xs:element maxOccurs="unbounded" ref="mods:dateIssued"/>
+                        <xs:element ref="mods:dateOther"/>
+                    </xs:sequence>
+                </xs:choice>
+                <xs:element ref="mods:place"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="publisher" type="xs:string"/>
+    <xs:element name="edition" type="xs:NCName"/>
+    <xs:element name="dateIssued">
+        <xs:complexType mixed="true">
+            <xs:attribute name="encoding" type="xs:NCName"/>
+            <xs:attribute name="keyDate" use="required" type="xs:NCName"/>
+            <xs:attribute name="point" use="required" type="xs:NCName"/>
+            <xs:attribute name="qualifier" use="required" type="xs:NCName"/>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="dateOther" type="xs:NCName"/>
+    <xs:element name="place">
+        <xs:complexType>
+            <xs:sequence>
+                <xs:element ref="mods:placeTerm"/>
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+    <xs:element name="placeTerm" type="xs:NCName"/>
+</xs:schema>
